@@ -1,15 +1,15 @@
 {
-    "name":"Example Listing",
-    "id":"com.vrchat.example-listing",
-    "url":"https://vrchat-community.github.io/template-package-listing/index.json",
+    "name":"MMMaellon Listing",
+    "id":"com.mmmaellon.vcc-listing",
+    "url":"https://mmmaellon.github.io/mmmaellonvcclisting/index.json",
     "author":{
-        "email":"developer@vrchat.com",
-        "name":"VRChat",
-        "url":"https://hello.vrchat.com"
+        "email":"mmmaellon@gmail.com",
+        "name":"MMMaellon",
+        "url":"https://twitter.com/MMMaellon"
     },
-    "description":"Example listing of VRChat packages",
+    "description":"Listing of MMMaellon's packages",
     "infoLink":{
-        "url":"http://github.com/vrchat-community/template-package-listing",
+        "url":"https://github.com/MMMaellon/MMMaellonVCCListing",
         "text":"View on GitHub"
     },
     "bannerUrl":"banner.png",
