@@ -161,13 +161,27 @@ h1 {
 }
 
 #listingInfo{
-    background-color: var(--fill-color); /* Semi-transparent color */
+    background-color: var(--fill-color);
     border-radius: 6px; /* Rounded corners with a 6px radius */
     padding-bottom: 1.5rem;
 }
 
+#packages{
+  background-color: var(--neutral-layer-floating);
+  border-radius: 6px; /* Rounded corners with a 6px radius */
+  padding-bottom: 1.5rem;
+}
+
 .addToVccBlock{
-  width: 100%;
+  width: 90%;
+}
+
+#vccAddRepoButton{
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  height: 4rem;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .card {
