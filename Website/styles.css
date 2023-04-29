@@ -141,7 +141,7 @@ h1 {
 .bannerImage {
   aspect-ratio: 5 / 1;
   border-radius: 6px;
-  max-width: 90%;
+  max-width: 100%;
   width: 100%;
   background-size: cover;
   background-position: center;
@@ -152,7 +152,11 @@ h1 {
 #listingInfo{
     background-color: var(--fill-color); /* Semi-transparent color */
     border-radius: 6px; /* Rounded corners with a 6px radius */
-    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.addToVccBlock{
+  width: 100%;
 }
 
 .card {

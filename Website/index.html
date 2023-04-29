@@ -33,12 +33,11 @@
             {{ listingInfo.Author.Email }}
           </fluent-tooltip>
           {{~ end; ~}}
-          <div class="caption1 mb-2" id="publishedByText">Published by <a href="{{listingInfo.Author.Url}}" target="_blank">{{ listingInfo.Author.Name }}</a></div>
+          <div class="caption1 mb-2" id="publishedByText">Published by <a href="{{listingInfo.Author.Url}}" target="_blank">{{ listingInfo.Author.Name }}</a>
           {{~ if listingInfo.InfoLink.Url ~}}
-            <div class="caption1" id="publishedByText">
-              <a href="{{listingInfo.InfoLink.Url}}" target="_blank">{{ if listingInfo.InfoLink.Text; listingInfo.InfoLink.Text; else; "Lean More"; end; }}</a>
-            </div>
+              <a href="{{listingInfo.InfoLink.Url}}" target="_blank"> {{ if listingInfo.InfoLink.Text; listingInfo.InfoLink.Text; else; "Lean More"; end; }}</a>
           {{~ end; ~}}
+          </div>
         </div>
       </div>
       <div class="addToVccBlock mt-4 row align-items-center">
@@ -217,11 +216,6 @@
           {{~ end ~}}
         </fluent-data-grid>
       </fluent-card>
-      {{~ if listingInfo.InfoLink.Url ~}}
-        <div class="caption1" id="publishedByText">
-          <a href="{{listingInfo.InfoLink.Url}}" target="_blank">{{ if listingInfo.InfoLink.Text; listingInfo.InfoLink.Text; else; "Lean More"; end; }}</a>
-        </div>
-      {{~ end; ~}}
     </div>
   </div>
   <script>
