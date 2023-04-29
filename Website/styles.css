@@ -150,8 +150,8 @@ h1 {
 }
 
 .card {
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent neutral-foreground-rest color */
-    /*background-color: rgba(0,0,0, 0.5);  Semi-transparent neutral-foreground-rest color */
+    background-color: rgba(255, 62, 97, 0.25); /* Semi-transparent color */
+    backdrop-filter: blur(10px);
     border-radius: 6px; /* Rounded corners with a 6px radius */
     padding: 1.5rem 3rem;
 }
