@@ -149,6 +149,17 @@ h1 {
   margin-bottom: 0.25rem;
 }
 
+.profile-picture img {
+  width: 200px;        /* Set the width of the profile picture */
+  height: 200px;       /* Set the height of the profile picture */
+  border-radius: 50%;  /* Make the image circular */
+  object-fit: cover;   /* Ensure the image maintains its aspect ratio */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Add a subtle drop shadow */
+  margin-top: -50%;
+  border: 6px solid var(--fill-color);
+  border-radius: 50%;
+}
+
 #listingInfo{
     background-color: var(--fill-color); /* Semi-transparent color */
     border-radius: 6px; /* Rounded corners with a 6px radius */

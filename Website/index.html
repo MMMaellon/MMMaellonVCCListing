@@ -21,7 +21,9 @@
         {{~ if listingInfo.BannerImage; ~}}
           <div class="bannerImage" style="background-image: url({{ listingInfo.BannerImageUrl }})"></div>
         {{~ end; ~}}
-        <p>
+        <div class="profile-picture">
+          <img src="profile.jpg" alt="Profile Picture">
+        </div>
         <h1>
           {{~ listingInfo.Name ~}}
         </h1>
@@ -36,11 +38,10 @@
           {{~ end; ~}}
           <div class="caption1 mb-2" id="publishedByText">Published by <a href="{{listingInfo.Author.Url}}" target="_blank">{{ listingInfo.Author.Name }}</a>
           {{~ if listingInfo.InfoLink.Url ~}}
-              <a href="{{listingInfo.InfoLink.Url}}" target="_blank"> {{ if listingInfo.InfoLink.Text; listingInfo.InfoLink.Text; else; "Lean More"; end; }}</a>
+             ✨ <a href="{{listingInfo.InfoLink.Url}}" target="_blank"> {{ if listingInfo.InfoLink.Text; listingInfo.InfoLink.Text; else; "Lean More"; end; }}</a>
           {{~ end; ~}}
           </div>
         </div>
-        </p>
       </div>
       <div class="addToVccBlock mt-4 row align-items-center">
         <fluent-text-field aria-readonly="true" id="vccUrlField" class="vccUrlField" readonly value="{{ listingInfo.Url }}">
