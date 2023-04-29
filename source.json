@@ -9,9 +9,11 @@
     },
     "description":"Tools that I've made for making games in VRChat",
     "infoLink":{
-        "githubUrl":"https://github.com/MMMaellon/",
-        "githubText":"GitHub",
-        "discordUrl":"https://discord.gg/S5sDC4PnFp",
+        "url": "https://github.com/MMMaellon/",
+        "text": "GitHub",
+        "githubUrl": "https://github.com/MMMaellon/",
+        "githubText": "GitHub",
+        "discordUrl": "https://discord.gg/S5sDC4PnFp",
         "discordText": "Discord Server"
     },
     "bannerUrl":"banner.jpg",
