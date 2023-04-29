@@ -38,7 +38,8 @@
           {{~ end; ~}}
           <div class="caption1 mb-2" id="publishedByText">Published by <a href="{{listingInfo.Author.Url}}" target="_blank">{{ listingInfo.Author.Name }}</a>
           {{~ if listingInfo.InfoLink.Url ~}}
-             ✨ <a href="{{listingInfo.InfoLink.Url}}" target="_blank"> {{ if listingInfo.InfoLink.Text; listingInfo.InfoLink.Text; else; "Lean More"; end; }}</a>
+             ✨ <a href="{{listingInfo.InfoLink.GithubUrl}}" target="_blank"> {{ if listingInfo.InfoLink.Text; listingInfo.InfoLink.GithubText; else; "Lean More"; end; }}</a>
+             ✨ <a href="{{listingInfo.InfoLink.DiscordUrl}}" target="_blank">{{if listingInfo.InfoLink.DiscordText; listingInfo.InfoLink.}}</a>
           {{~ end; ~}}
           </div>
         </div>
