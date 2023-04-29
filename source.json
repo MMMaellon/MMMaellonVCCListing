@@ -1,20 +1,16 @@
 {
-    "name":"MMMaellon's Prefabs'",
+    "name":"MMMaellon VCC Listing",
     "id":"com.mmmaellon.vcc-listing",
     "url":"https://mmmaellon.github.io/mmmaellonvcclisting/index.json",
     "author":{
         "email":"mmmaellon@gmail.com",
         "name":"MMMaellon",
-        "url":"https://twitter.com/MMMaellon"
+        "url":"https://twitter.com/MMMaellon/"
     },
     "description":"Tools that I've made for making games in VRChat",
     "infoLink":{
-        "url": "https://github.com/MMMaellon/MMMaellonVCCListing",
-        "text": "GitHub",
-        "githubUrl": "https://github.com/MMMaellon/",
-        "githubText": "GitHub",
-        "discordUrl": "https://discord.gg/S5sDC4PnFp",
-        "discordText": "Discord Server"
+        "url": "https://github.com/MMMaellon/",
+        "text": "GitHub"
     },
     "bannerUrl":"banner.jpg",
     "githubRepos":[
