@@ -149,8 +149,14 @@ h1 {
   margin-bottom: 0.25rem;
 }
 
+#listingInfo{
+    background-color: var(--fill-color); /* Semi-transparent color */
+    border-radius: 6px; /* Rounded corners with a 6px radius */
+    padding-top: 1.5rem;
+}
+
 .card {
-    background-color: rgba(255, 62, 97, 0.25); /* Semi-transparent color */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent color */
     backdrop-filter: blur(10px);
     border-radius: 6px; /* Rounded corners with a 6px radius */
     padding: 1.5rem 3rem;
