@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   padding: 0;
   margin: 0;
   min-width: 100vw;
@@ -27,6 +27,7 @@ body {
     width: 100%; /* Fill the entire width of the page */
     height: 100%; /* Fill the entire height of the page */
     background-color: rgba(0, 0, 0, 0.5); /* Set a background color with transparency */
+    box-sizing: border-box; /* Include padding and border in the total width and height */
 }
 
 .hidden {
@@ -149,10 +150,10 @@ h1 {
 }
 
 .card {
-    background-color: rgba(var(--neutral-foreground-rest-rgb), 0.5); /* Semi-transparent neutral-foreground-rest color */
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent neutral-foreground-rest color */
     /*background-color: rgba(0,0,0, 0.5);  Semi-transparent neutral-foreground-rest color */
     border-radius: 6px; /* Rounded corners with a 6px radius */
-    padding: 0.25rem 0.5rem;
+    padding: 1.5rem 3rem;
 }
 
 .badge {
