@@ -15,12 +15,12 @@
       var node = document.getElementById('elm');
       var app = Elm.Main.embed(node);
   </script>
-  <div id="card" class ="card">
     <div class="col align-items-center content">
       <div id="listingInfo" class="col mb-4 w-100 align-items-center">
         {{~ if listingInfo.BannerImage; ~}}
           <div class="bannerImage" style="background-image: url({{ listingInfo.BannerImageUrl }})"></div>
         {{~ end; ~}}
+        <p>
         <h1>
           {{~ listingInfo.Name ~}}
         </h1>
@@ -39,6 +39,7 @@
           {{~ end; ~}}
           </div>
         </div>
+        </p>
       </div>
       <div class="addToVccBlock mt-4 row align-items-center">
         <fluent-text-field aria-readonly="true" id="vccUrlField" class="vccUrlField" readonly value="{{ listingInfo.Url }}">
@@ -217,7 +218,6 @@
         </fluent-data-grid>
       </fluent-card>
     </div>
-  </div>
   <script>
     document.getElementById('card').addEventListener('click', function(event) {
         event.stopPropagation();

@@ -19,7 +19,7 @@ html, body {
 }
 
 /* Full page div */
-#elm {
+.layer {
     position: fixed; /* Positioned relative to the browser window */
     z-index: -1; /* Positioned behind other elements */
     top: 0; /* Align to the top of the page */
@@ -28,6 +28,7 @@ html, body {
     height: 100%; /* Fill the entire height of the page */
     background-color: rgba(0, 0, 0, 0.5); /* Set a background color with transparency */
     box-sizing: border-box; /* Include padding and border in the total width and height */
+    filter: blur(10px);
 }
 
 .hidden {
@@ -152,18 +153,10 @@ h1 {
 #listingInfo{
     background-color: var(--fill-color); /* Semi-transparent color */
     border-radius: 6px; /* Rounded corners with a 6px radius */
-    padding-bottom: 1.5rem;
 }
 
 .addToVccBlock{
   width: 100%;
-}
-
-.card {
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent color */
-    backdrop-filter: blur(10px);
-    border-radius: 6px; /* Rounded corners with a 6px radius */
-    padding: 1.5rem 3rem;
 }
 
 .badge {
