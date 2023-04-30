@@ -76,7 +76,7 @@ const setTheme = () => {
     addListingToVccHelp.hidden = true;
   });
   const closeHelpModal = e => {
-    if (addListingToVccHelp.contains(e.target) || e.target != addListingToVccHelpClose || addListingToVccHelp.hidden) return;
+    if ((addListingToVccHelp.contains(e.target) && e.target != addListingToVccHelpClose && !e.target.classList.contains('overlay')) || addListingToVccHelp.hidden) return;
     addListingToVccHelp.hidden = true;
   }
   addListingToVccHelpClose.addEventListener('click', closeHelpModal);
@@ -109,7 +109,7 @@ const setTheme = () => {
 
   const rowMoreMenu = document.getElementById('rowMoreMenu');
   const hideRowMoreMenu = e => {
-    if (rowMoreMenu.contains(e.target) || e.target.classList.contains('rowMenuButton') || rowMoreMenu.hidden) return;
+    if ((rowMoreMenu.contains(e.target) && !e.target.classList.contains('overlay') && e.target != packageInfoModalClose) || e.target.classList.contains('rowMenuButton') || rowMoreMenu.hidden) return;
     document.removeEventListener('click', hideRowMoreMenu);
     rowMoreMenu.hidden = true;
   }
@@ -137,6 +137,12 @@ document.getElementById('card').addEventListener('click', hideRowMoreMenu);
         }, 1);
       }
     });
+  });
+  
+    const overlays = document.querySelectorAll('.overlay');
+  overlays.forEach(button => {
+    button.addEventListener('click', closeHelpModal);
+    button.addEventListener('click', closeInfoModal);
   });
 
   const packageInfoModal = document.getElementById('packageInfoModal');
