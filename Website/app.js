@@ -109,9 +109,8 @@ const setTheme = () => {
 
   const rowMoreMenu = document.getElementById('rowMoreMenu');
   const hideRowMoreMenu = e => {
-    if ((rowMoreMenu.contains(e.target) && !e.target.classList.contains('overlay') && e.target != packageInfoModalClose) || e.target.classList.contains('rowMenuButton') || rowMoreMenu.hidden) return;
+    if (rowMoreMenu.contains(e.target) || rowMoreMenu.hidden) return;
     document.removeEventListener('click', hideRowMoreMenu);
-    // cardContainer.removeEventListener('click', hideRowMoreMenu);
     rowMoreMenu.hidden = true;
   }
   const cardContainer = document.getElementById('card');
@@ -145,11 +144,10 @@ const setTheme = () => {
   const packageInfoModal = document.getElementById('packageInfoModal');
   const packageInfoModalClose = document.getElementById('packageInfoModalClose');
   const closeInfoModal = e => {
-    if ((packageInfoModal.contains(e.target) && e.target != packageInfoModalClose && !e.target.classList.contains('overlay')) || e.target.classList.contains('rowPackageInfoButton ') || packageInfoModal.hidden) return;
     packageInfoModal.hidden = true;
   }
   packageInfoModalClose.addEventListener('click', closeInfoModal);
-  document.addEventListener('click', closeInfoModal);
+  // document.addEventListener('click', closeInfoModal);
   // cardContainer.addEventListener('click', closeInfoModal);
 
   // Fluent dialogs use nested shadow-rooted elements, so we need to use JS to style them
