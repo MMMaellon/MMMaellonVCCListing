@@ -15,7 +15,8 @@
     "bannerUrl":"banner.jpg",
     "githubRepos":[
         "MMMaellon/SmartObjectSync",
-        "MMMaellon/P-Shooters"
+        "MMMaellon/P-Shooters",
+        "CyanLaser/CyanPlayerObjectPool/tree/vpm"
     ],
     "packages":[
     ]
