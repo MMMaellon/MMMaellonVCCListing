@@ -148,11 +148,12 @@ const setTheme = () => {
     packageInfoModal.hidden = true;
   }
   const closeInfoModalOutside = e => {
-    console.log(e.target.outerHTML);
-    packageInfoModal.hidden = true;
+    if (e.target == packageInfoModal) {
+      packageInfoModal.hidden = true;
+    }
   }
   packageInfoModalClose.addEventListener('click', closeInfoModal);
-  document.addEventListener('click', closeInfoModalOutside);
+  packageInfoModal.addEventListener('click', closeInfoModalOutside);
   // cardContainer.addEventListener('click', closeInfoModal);
 
   // Fluent dialogs use nested shadow-rooted elements, so we need to use JS to style them
