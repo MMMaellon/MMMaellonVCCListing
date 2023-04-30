@@ -107,6 +107,7 @@ const setTheme = () => {
     document.removeEventListener('click', hideRowMoreMenu);
     rowMoreMenu.hidden = true;
   }
+document.getElementById('card').addEventListener('click', hideRowMoreMenu);
 
   const rowMenuButtons = document.querySelectorAll('.rowMenuButton');
   rowMenuButtons.forEach(button => {
