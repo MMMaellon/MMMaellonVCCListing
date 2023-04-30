@@ -75,6 +75,12 @@ const setTheme = () => {
   addListingToVccHelpClose.addEventListener('click', () => {
     addListingToVccHelp.hidden = true;
   });
+  const closeHelpModal = e => {
+    if (addListingToVccHelp.contains(e.target) || e.target != addListingToVccHelpClose || addListingToVccHelp.hidden) return;
+    addListingToVccHelp.hidden = true;
+  }
+  addListingToVccHelpClose.addEventListener('click', closeHelpModal);
+  document.addEventListener('click', closeHelpModal);
 
   const vccListingInfoUrlFieldCopy = document.getElementById('vccListingInfoUrlFieldCopy');
   vccListingInfoUrlFieldCopy.addEventListener('click', () => {
@@ -136,7 +142,7 @@ document.getElementById('card').addEventListener('click', hideRowMoreMenu);
   const packageInfoModal = document.getElementById('packageInfoModal');
   const packageInfoModalClose = document.getElementById('packageInfoModalClose');
   const closeInfoModal = e => {
-    if (packageInfoModal.contains(e.target) || e != packageInfoModalClose || packageInfoModal.hidden) return;
+    if (packageInfoModal.contains(e.target) || e.target != packageInfoModalClose || packageInfoModal.hidden) return;
     packageInfoModal.hidden = true;
   }
   packageInfoModalClose.addEventListener('click', closeInfoModal);
