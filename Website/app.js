@@ -103,7 +103,7 @@ const setTheme = () => {
 
   const rowMoreMenu = document.getElementById('rowMoreMenu');
   const hideRowMoreMenu = e => {
-    if ((rowMoreMenu.contains(e.target) && !e.target.classList.contains('rowMenuButton')) || rowMoreMenu.hidden) return;
+    if (rowMoreMenu.contains(e.target) || e.target.classList.contains('rowMenuButton') || rowMoreMenu.hidden) return;
     document.removeEventListener('click', hideRowMoreMenu);
     rowMoreMenu.hidden = true;
   }
@@ -136,7 +136,7 @@ document.getElementById('card').addEventListener('click', hideRowMoreMenu);
   const packageInfoModal = document.getElementById('packageInfoModal');
   const packageInfoModalClose = document.getElementById('packageInfoModalClose');
   const closeInfoModal = e => {
-    if ((packageInfoModal.contains(e.target) && e != packageInfoModalClose) || packageInfoModal.hidden) return;
+    if (packageInfoModal.contains(e.target) || e != packageInfoModalClose || packageInfoModal.hidden) return;
     packageInfoModal.hidden = true;
   }
   packageInfoModalClose.addEventListener('click', closeInfoModal);
