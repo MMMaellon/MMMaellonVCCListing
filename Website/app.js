@@ -6,7 +6,6 @@ const PACKAGES = {
 {{~ for package in packages ~}}
   "{{ package.Name }}": {
     name: "{{ package.Name }}",
-    url:"{{ package.Url }}",
     displayName: "{{ if package.DisplayName; package.DisplayName; end; }}",
     description: "{{ if package.Description; package.Description; end; }}",
     version: "{{ package.Version }}",
@@ -155,21 +154,9 @@ const setTheme = () => {
   const packageInfoLicense = document.getElementById('packageInfoLicense');
   const packageInfoVccUrlField = document.getElementById('packageInfoVccUrlField');
 
-  // const rowAddToVccButtons = document.querySelectorAll('.rowAddToVccButton');
-  // rowAddToVccButtons.forEach((button) => {
-  //   button.addEventListener('click', () => window.location.assign(`vcc://vpm/addRepo?url=${encodeURIComponent(LISTING_URL)}`));
-  // });
   const rowAddToVccButtons = document.querySelectorAll('.rowAddToVccButton');
   rowAddToVccButtons.forEach((button) => {
-    button.addEventListener('click', e => {
-      const packageId = e.target.dataset?.packageId;
-      const packageInfo = PACKAGES?.[packageId];
-      if (!packageInfo) {
-        console.error(`Did not find package ${packageId}. Packages available:`, PACKAGES);
-        return;
-      }
-      window.location.assign(`vcc://vpm/addRepo?url=${encodeURIComponent(packageInfo.url)}`)
-    });
+    button.addEventListener('click', () => window.location.assign(`vcc://vpm/addRepo?url=${encodeURIComponent(LISTING_URL)}`));
   });
 
   const rowPackageInfoButton = document.querySelectorAll('.rowPackageInfoButton');
@@ -224,7 +211,7 @@ const setTheme = () => {
       setTimeout(() => {
         const height = packageInfoModal.querySelector('.col').clientHeight;
         modalControl.style.setProperty('--dialog-height', `${height + 14}px`);
-      }, 1);
+      }, 2);
     });
   });
 
