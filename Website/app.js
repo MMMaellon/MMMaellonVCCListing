@@ -135,9 +135,12 @@ document.getElementById('card').addEventListener('click', hideRowMoreMenu);
 
   const packageInfoModal = document.getElementById('packageInfoModal');
   const packageInfoModalClose = document.getElementById('packageInfoModalClose');
-  packageInfoModalClose.addEventListener('click', () => {
+  const closeInfoModal = e => {
+    if ((packageInfoModal.contains(e.target) && e != packageInfoModalClose) || packageInfoModal.hidden) return;
     packageInfoModal.hidden = true;
-  });
+  }
+  packageInfoModalClose.addEventListener('click', closeInfoModal);
+  document.addEventListener('click', closeInfoModal);
 
   // Fluent dialogs use nested shadow-rooted elements, so we need to use JS to style them
   const modalControl = packageInfoModal.shadowRoot.querySelector('.control');
