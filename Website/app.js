@@ -111,10 +111,10 @@ const setTheme = () => {
   const hideRowMoreMenu = e => {
     if ((rowMoreMenu.contains(e.target) && !e.target.classList.contains('overlay') && e.target != packageInfoModalClose) || e.target.classList.contains('rowMenuButton') || rowMoreMenu.hidden) return;
     document.removeEventListener('click', hideRowMoreMenu);
+    cardContainer.removeEventListener('click', hideRowMoreMenu);
     rowMoreMenu.hidden = true;
   }
-document.getElementById('card').addEventListener('click', hideRowMoreMenu);
-
+  const cardContainer = document.getElementById('card');
   const rowMenuButtons = document.querySelectorAll('.rowMenuButton');
   rowMenuButtons.forEach(button => {
     button.addEventListener('click', e => {
@@ -131,28 +131,31 @@ document.getElementById('card').addEventListener('click', hideRowMoreMenu);
           downloadListener();
           downloadLink.removeEventListener('change', downloadListener);
         });
+        
+        
 
         setTimeout(() => {
+          // const overlays = document.querySelectorAll('.overlay');
+          // overlays.forEach(button => {
+          //   button.addEventListener('click', hideRowMoreMenu);
+          //   // button.addEventListener('click', closeHelpModal);
+          // });
           document.addEventListener('click', hideRowMoreMenu);
+          cardContainer.addEventListener('click', hideRowMoreMenu);
         }, 1);
       }
     });
-  });
-  
-    const overlays = document.querySelectorAll('.overlay');
-  overlays.forEach(button => {
-    button.addEventListener('click', closeHelpModal);
-    button.addEventListener('click', closeInfoModal);
   });
 
   const packageInfoModal = document.getElementById('packageInfoModal');
   const packageInfoModalClose = document.getElementById('packageInfoModalClose');
   const closeInfoModal = e => {
-    if (packageInfoModal.contains(e.target) || e.target != packageInfoModalClose || packageInfoModal.hidden) return;
+    if ((packageInfoModal.contains(e.target) && e.target != packageInfoModalClose) || packageInfoModal.hidden) return;
     packageInfoModal.hidden = true;
   }
   packageInfoModalClose.addEventListener('click', closeInfoModal);
   document.addEventListener('click', closeInfoModal);
+  cardContainer.addEventListener('click', closeInfoModal);
 
   // Fluent dialogs use nested shadow-rooted elements, so we need to use JS to style them
   const modalControl = packageInfoModal.shadowRoot.querySelector('.control');
