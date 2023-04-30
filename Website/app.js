@@ -111,7 +111,7 @@ const setTheme = () => {
   const hideRowMoreMenu = e => {
     if ((rowMoreMenu.contains(e.target) && !e.target.classList.contains('overlay') && e.target != packageInfoModalClose) || e.target.classList.contains('rowMenuButton') || rowMoreMenu.hidden) return;
     document.removeEventListener('click', hideRowMoreMenu);
-    cardContainer.removeEventListener('click', hideRowMoreMenu);
+    // cardContainer.removeEventListener('click', hideRowMoreMenu);
     rowMoreMenu.hidden = true;
   }
   const cardContainer = document.getElementById('card');
@@ -150,7 +150,7 @@ const setTheme = () => {
   }
   packageInfoModalClose.addEventListener('click', closeInfoModal);
   document.addEventListener('click', closeInfoModal);
-  cardContainer.addEventListener('click', closeInfoModal);
+  // cardContainer.addEventListener('click', closeInfoModal);
 
   // Fluent dialogs use nested shadow-rooted elements, so we need to use JS to style them
   const modalControl = packageInfoModal.shadowRoot.querySelector('.control');
