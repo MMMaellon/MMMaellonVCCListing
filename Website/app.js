@@ -113,7 +113,11 @@ const setTheme = () => {
     button.addEventListener('click', e => {
       if (rowMoreMenu?.hidden) {
         rowMoreMenu.style.top = `${e.clientY + e.target.clientHeight}px`;
-        rowMoreMenu.style.left = `${e.clientX - 120}px`;
+        const buttonRect = e.target.getBoundingClientRect();
+      // rowMoreMenu.style.top = `${buttonRect.bottom}px`;
+        rowMoreMenu.style.left = `${buttonRect.left}px`;
+      // rowMoreMenu.hidden = false;
+        // rowMoreMenu.style.left = `${e.clientX - 120}px`;
         rowMoreMenu.hidden = false;
 
         const downloadLink = rowMoreMenu.querySelector('#rowMoreMenuDownload');
