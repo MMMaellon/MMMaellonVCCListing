@@ -145,7 +145,7 @@ const setTheme = () => {
   const packageInfoModal = document.getElementById('packageInfoModal');
   const packageInfoModalClose = document.getElementById('packageInfoModalClose');
   const closeInfoModal = e => {
-    if ((packageInfoModal.contains(e.target) && e.target != packageInfoModalClose && !e.target.classList.contains('rowPackageInfoButton ')) || packageInfoModal.hidden) return;
+    if ((packageInfoModal.contains(e.target) && e.target != packageInfoModalClose && !e.target.classList.contains('overlay')) || e.target.classList.contains('rowPackageInfoButton ') || packageInfoModal.hidden) return;
     packageInfoModal.hidden = true;
   }
   packageInfoModalClose.addEventListener('click', closeInfoModal);
