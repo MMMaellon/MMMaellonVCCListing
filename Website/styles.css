@@ -167,7 +167,7 @@ h1 {
 }
 
 #packages{
-  background-color: var(--neutral-layer-floating);
+  background-color: var(--fill-color);
   border-radius: 6px; /* Rounded corners with a 6px radius */
   padding-bottom: 1.5rem;
 }
