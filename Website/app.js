@@ -6,6 +6,7 @@ const PACKAGES = {
 {{~ for package in packages ~}}
   "{{ package.Name }}": {
     name: "{{ package.Name }}",
+    url:"{{ package.Url }}",
     displayName: "{{ if package.DisplayName; package.DisplayName; end; }}",
     description: "{{ if package.Description; package.Description; end; }}",
     version: "{{ package.Version }}",
@@ -152,10 +153,23 @@ const setTheme = () => {
   const packageInfoDependencies = document.getElementById('packageInfoDependencies');
   const packageInfoKeywords = document.getElementById('packageInfoKeywords');
   const packageInfoLicense = document.getElementById('packageInfoLicense');
+  const packageInfoVccUrlField = document.getElementById('packageInfoVccUrlField');
 
+  // const rowAddToVccButtons = document.querySelectorAll('.rowAddToVccButton');
+  // rowAddToVccButtons.forEach((button) => {
+  //   button.addEventListener('click', () => window.location.assign(`vcc://vpm/addRepo?url=${encodeURIComponent(LISTING_URL)}`));
+  // });
   const rowAddToVccButtons = document.querySelectorAll('.rowAddToVccButton');
   rowAddToVccButtons.forEach((button) => {
-    button.addEventListener('click', () => window.location.assign(`vcc://vpm/addRepo?url=${encodeURIComponent(LISTING_URL)}`));
+    button.addEventListener('click', () => {
+      const packageId = e.target.dataset?.packageId;
+      const packageInfo = PACKAGES?.[packageId];
+      if (!packageInfo) {
+        console.error(`Did not find package ${packageId}. Packages available:`, PACKAGES);
+        return;
+      }
+      window.location.assign(`vcc://vpm/addRepo?url=${encodeURIComponent(packageInfo.url)}`)
+    });
   });
 
   const rowPackageInfoButton = document.querySelectorAll('.rowPackageInfoButton');
@@ -174,6 +188,7 @@ const setTheme = () => {
       packageInfoDescription.textContent = packageInfo.description;
       packageInfoAuthor.textContent = packageInfo.author.name;
       packageInfoAuthor.href = packageInfo.author.url;
+      packageInfoVccUrlField.textContent = packageInfo.url;
 
       if ((packageInfo.keywords?.length ?? 0) === 0) {
         packageInfoKeywords.parentElement.classList.add('hidden');
