@@ -135,11 +135,6 @@ const setTheme = () => {
         
 
         setTimeout(() => {
-          // const overlays = document.querySelectorAll('.overlay');
-          // overlays.forEach(button => {
-          //   button.addEventListener('click', hideRowMoreMenu);
-          //   // button.addEventListener('click', closeHelpModal);
-          // });
           document.addEventListener('click', hideRowMoreMenu);
           cardContainer.addEventListener('click', hideRowMoreMenu);
         }, 1);
@@ -150,7 +145,7 @@ const setTheme = () => {
   const packageInfoModal = document.getElementById('packageInfoModal');
   const packageInfoModalClose = document.getElementById('packageInfoModalClose');
   const closeInfoModal = e => {
-    if ((packageInfoModal.contains(e.target) && e.target != packageInfoModalClose) || packageInfoModal.hidden) return;
+    if ((packageInfoModal.contains(e.target) && e.target != packageInfoModalClose && !e.target.classList.contains('rowPackageInfoButton ')) || packageInfoModal.hidden) return;
     packageInfoModal.hidden = true;
   }
   packageInfoModalClose.addEventListener('click', closeInfoModal);
