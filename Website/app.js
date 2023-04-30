@@ -103,7 +103,7 @@ const setTheme = () => {
 
   const rowMoreMenu = document.getElementById('rowMoreMenu');
   const hideRowMoreMenu = e => {
-    if (rowMoreMenu.contains(e.target) || rowMoreMenu.hidden) return;
+    if ((rowMoreMenu.contains(e.target) && !e.target.classList.contains('rowMenuButton')) || rowMoreMenu.hidden) return;
     document.removeEventListener('click', hideRowMoreMenu);
     rowMoreMenu.hidden = true;
   }
