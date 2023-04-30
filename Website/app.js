@@ -148,7 +148,7 @@ const setTheme = () => {
     packageInfoModal.hidden = true;
   }
   const closeInfoModalOutside = e => {
-    if (packageInfoModal.target.contains(e.target) || e.target.tagName === 'BUTTON') return;
+    console.log(e.target.outerHTML);
     packageInfoModal.hidden = true;
   }
   packageInfoModalClose.addEventListener('click', closeInfoModal);
