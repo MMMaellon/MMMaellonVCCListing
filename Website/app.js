@@ -161,7 +161,7 @@ const setTheme = () => {
   // });
   const rowAddToVccButtons = document.querySelectorAll('.rowAddToVccButton');
   rowAddToVccButtons.forEach((button) => {
-    button.addEventListener('click', () => {
+    button.addEventListener('click', e => {
       const packageId = e.target.dataset?.packageId;
       const packageInfo = PACKAGES?.[packageId];
       if (!packageInfo) {
