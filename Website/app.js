@@ -75,12 +75,14 @@ const setTheme = () => {
   addListingToVccHelpClose.addEventListener('click', () => {
     addListingToVccHelp.hidden = true;
   });
+
   const closeHelpModal = e => {
-    if ((addListingToVccHelp.contains(e.target) && e.target != addListingToVccHelpClose && !e.target.classList.contains('overlay')) || addListingToVccHelp.hidden) return;
+    if (e.target != addListingToVccHelp && e.target != addListingToVccHelpClose) return;
     addListingToVccHelp.hidden = true;
+    e.stopPropagation();
   }
   addListingToVccHelpClose.addEventListener('click', closeHelpModal);
-  document.addEventListener('click', closeHelpModal);
+  addListingToVccHelp.addEventListener('click', closeHelpModal);
 
   const vccListingInfoUrlFieldCopy = document.getElementById('vccListingInfoUrlFieldCopy');
   vccListingInfoUrlFieldCopy.addEventListener('click', () => {
@@ -145,16 +147,12 @@ const setTheme = () => {
   const packageInfoModal = document.getElementById('packageInfoModal');
   const packageInfoModalClose = document.getElementById('packageInfoModalClose');
   const closeInfoModal = e => {
+    if (e.target != packageInfoModal && e.target != packageInfoModalClose) return;
     packageInfoModal.hidden = true;
-  }
-  const closeInfoModalOutside = e => {
-    if (e.target == packageInfoModal) {
-      packageInfoModal.hidden = true;
-    }
+    e.stopPropagation();
   }
   packageInfoModalClose.addEventListener('click', closeInfoModal);
-  packageInfoModal.addEventListener('click', closeInfoModalOutside);
-  // cardContainer.addEventListener('click', closeInfoModal);
+  packageInfoModal.addEventListener('click', closeInfoModal);
 
   // Fluent dialogs use nested shadow-rooted elements, so we need to use JS to style them
   const modalControl = packageInfoModal.shadowRoot.querySelector('.control');
