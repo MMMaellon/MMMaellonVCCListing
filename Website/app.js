@@ -137,7 +137,7 @@ const setTheme = () => {
         const regex = /^(https:\/\/github\.com\/[^/]+\/[^/]+\/releases)\/download\/[^/]+\/[^/]+$/;
         const match = e?.target?.dataset?.packageUrl.match(regex);
         
-        const githubLink = rowMoreMenu.querySelector('#rowMoreMenuDownload');
+        const githubLink = rowMoreMenu.querySelector('#rowMoreMenuGithub');
         const githubListener = () => {
           window.open(match[1], '_blank');
         }
