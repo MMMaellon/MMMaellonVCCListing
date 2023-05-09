@@ -140,21 +140,19 @@ const setTheme = () => {
 
   rowMenuButtons.forEach(button => {
     button.addEventListener('click', e => {
-      if (rowMoreMenu?.hidden) {
-        rowMoreMenu.style.top = `${e.clientY + e.target.clientHeight}px`;
-        rowMoreMenu.style.left = `${e.clientX - 120}px`;
-        rowMoreMenu.hidden = false;
+      rowMoreMenu.style.top = `${e.clientY + e.target.clientHeight}px`;
+      rowMoreMenu.style.left = `${e.clientX - 120}px`;
+      rowMoreMenu.hidden = false;
 
-        console.log(e.target);
-        console.log(e?.target?.dataset?.packageUrl);
-        
-        currentPackageUrl = e.target.dataset.packageUrl;
+      console.log(e.target);
+      console.log(e?.target?.dataset?.packageUrl);
+      
+      currentPackageUrl = e.target.dataset.packageUrl;
 
-        setTimeout(() => {
-          document.addEventListener('click', hideRowMoreMenu);
-          cardContainer.addEventListener('click', hideRowMoreMenu);
-        }, 1);
-      }
+      setTimeout(() => {
+        document.addEventListener('click', hideRowMoreMenu);
+        cardContainer.addEventListener('click', hideRowMoreMenu);
+      }, 1);
     });
   });
 
