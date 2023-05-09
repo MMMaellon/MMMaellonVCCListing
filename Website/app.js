@@ -134,7 +134,17 @@ const setTheme = () => {
           downloadLink.removeEventListener('change', downloadListener);
         });
         
+        const regex = /^(https:\/\/github\.com\/[^/]+\/[^/]+\/releases)\/download\/[^/]+\/[^/]+$/;
+        const match = e?.target?.dataset?.packageUrl.match(regex);
         
+        const githubLink = rowMoreMenu.querySelector('#rowMoreMenuDownload');
+        const githubListener = () => {
+          window.open(match[1], '_blank');
+        }
+        githubLink.addEventListener('change', () => {
+          githubListener();
+          githubLink.removeEventListener('change', githubListener);
+        });
 
         setTimeout(() => {
           document.addEventListener('click', hideRowMoreMenu);
