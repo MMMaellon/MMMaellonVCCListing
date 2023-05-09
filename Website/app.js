@@ -118,6 +118,26 @@ const setTheme = () => {
   }
   const cardContainer = document.getElementById('card');
   const rowMenuButtons = document.querySelectorAll('.rowMenuButton');
+  let currentPackageUrl;
+
+  const downloadLink = document.querySelector('#rowMoreMenuDownload');
+  const downloadListener = () => {
+    if (currentPackageUrl) {
+      window.open(currentPackageUrl, '_blank');
+    }
+  };
+  downloadLink.addEventListener('click', downloadListener);
+
+  const githubLink = document.querySelector("#rowMoreMenuGithub");
+  const githubListener = () => {
+    if (currentPackageUrl) {
+      const regex = /^(https:\/\/github\.com\/[^/]+\/[^/]+\/releases)\/download\/[^/]+\/[^/]+$/;
+      const match = currentPackageUrl.match(regex);
+      window.open(match[1], '_blank');
+    }
+  };
+  githubLink.addEventListener('click', githubListener);
+
   rowMenuButtons.forEach(button => {
     button.addEventListener('click', e => {
       if (rowMoreMenu?.hidden) {
@@ -125,26 +145,10 @@ const setTheme = () => {
         rowMoreMenu.style.left = `${e.clientX - 120}px`;
         rowMoreMenu.hidden = false;
 
-        const downloadLink = rowMoreMenu.querySelector('#rowMoreMenuDownload');
-        const downloadListener = () => {
-          window.open(e?.target?.dataset?.packageUrl, '_blank');
-        }
-        downloadLink.addEventListener('change', () => {
-          downloadListener();
-          downloadLink.removeEventListener('change', downloadListener);
-        });
+        console.log(e.target);
+        console.log(e?.target?.dataset?.packageUrl);
         
-        const regex = /^(https:\/\/github\.com\/[^/]+\/[^/]+\/releases)\/download\/[^/]+\/[^/]+$/;
-        const match = e?.target?.dataset?.packageUrl.match(regex);
-        
-        const githubLink = rowMoreMenu.querySelector('#rowMoreMenuGithub');
-        const githubListener = () => {
-          window.open(match[1], '_blank');
-        }
-        githubLink.addEventListener('change', () => {
-          githubListener();
-          githubLink.removeEventListener('change', githubListener);
-        });
+        currentPackageUrl = e.target.dataset.packageUrl;
 
         setTimeout(() => {
           document.addEventListener('click', hideRowMoreMenu);
