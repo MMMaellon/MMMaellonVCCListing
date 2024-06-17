@@ -188,14 +188,19 @@ const setTheme = () => {
 
   const rowAddToVccButtons = document.querySelectorAll('.rowAddToVccButton');
   rowAddToVccButtons.forEach((button) => {
-    button.addEventListener('click', e => window.location.assign(`vcc://vpm/addRepo?url=${encodeURIComponent(e.target.dataset?.packageUrl)}`));
+      const regex = /^https:\/\/github\.com\/([^/]+)\/([^/]+)\/releases\/download\/[^/]+\/[^/]+$/;
+      const match = e.target.dataset?.packageUrl.match(regex);
+      if(match)
+      {
+        button.addEventListener('click', e => window.location.assign(`vcc://vpm/addRepo?url=${encodeURIComponent("http://" + match[1] + ".github.io/" + match[2] + "/index.json")}`));
+      }
   });
   const rowPackageGithubButton = document.querySelectorAll('.rowAddToVccButton');
   rowPackageGithubButton.forEach((button) => {
     button.addEventListener('click', e => {
       const regex = /^(https:\/\/github\.com\/[^/]+\/[^/]+\/)releases\/download\/[^/]+\/[^/]+$/;
       const match = e.target.dataset?.packageUrl.match(regex);
-      if(match.Success)
+      if(match)
       {
        window.open(match[1], '_blank');
       }
@@ -219,7 +224,7 @@ const setTheme = () => {
       packageInfoAuthor.href = packageInfo.author.url;
       const regex = /^https:\/\/github\.com\/([^/]+)\/([^/]+)\/releases\/download\/[^/]+\/[^/]+$/;
       const match = e.target.dataset?.packageUrl.match(regex);
-      if(match.Success)
+      if(match)
       {
         packageInfoExternalLink.href = "http://" + match[1] + ".github.io/" + match[2];
         packageInfoExternalLink.textContent = "http://" + match[1] + ".github.io/" + match[2];
