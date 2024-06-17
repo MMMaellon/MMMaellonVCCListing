@@ -188,14 +188,14 @@ const setTheme = () => {
 
   const rowAddToVccButtons = document.querySelectorAll('.rowAddToVccButton');
   rowAddToVccButtons.forEach((button) => {
-      if(match)
-      {
         button.addEventListener('click', e => {
       const regex = /^https:\/\/github\.com\/([^/]+)\/([^/]+)\/releases\/download\/[^/]+\/[^/]+$/;
       const match = e.target.dataset?.packageUrl.match(regex);
+      if(match)
+      {
         window.location.assign(`vcc://vpm/addRepo?url=${encodeURIComponent("http://" + match[1] + ".github.io/" + match[2] + "/index.json")}`)
-        });
       }
+        });
   });
   const rowPackageGithubButton = document.querySelectorAll('.rowAddToVccButton');
   rowPackageGithubButton.forEach((button) => {

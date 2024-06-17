@@ -83,7 +83,7 @@ h1 {
 .packages {
   margin: 0.5rem 0 1rem 0;
   max-width: 90%;
-  max-height: 50vh;
+  max-height: 25vh;
   padding: 0.25rem;
   display: flex;
   flex: 1;
