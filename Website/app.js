@@ -126,7 +126,10 @@ const setTheme = () => {
       window.open(currentPackageUrl, '_blank');
     }
   };
-  downloadLink.addEventListener('click', downloadListener);
+  if(downloadLink)
+  {
+    downloadLink.addEventListener('click', downloadListener);
+  }
 
   const githubLink = document.querySelector("#rowMoreMenuGithub");
   const githubListener = () => {

@@ -1,0 +1,22 @@
+{
+    "name":"MMMaellon's Prefabs",
+    "id":"com.mmmaellon.vcc-listing",
+    "url":"https://mmmaellon.github.io/MMMaellonVCCListing/index.json",
+    "author":{
+        "email":"mmmaellon@gmail.com",
+        "name":"MMMaellon",
+        "url":"https://twitter.com/MMMaellon/"
+    },
+    "description":"Tools for making games in VRChat",
+    "infoLink":{
+        "url": "https://github.com/MMMaellon/MMMaellonVCCListing",
+        "text": "GitHub"
+    },
+    "bannerUrl":"banner.jpg",
+    "githubRepos":[
+         "MMMaellon/Blankie",
+         "MMMaellon/LightSync",
+    ],
+    "packages":[
+    ]
+}
