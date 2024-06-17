@@ -197,7 +197,7 @@ const setTheme = () => {
       }
         });
   });
-  const rowPackageGithubButton = document.querySelectorAll('.rowAddToVccButton');
+  const rowPackageGithubButton = document.querySelectorAll('.rowPackageGithubButton');
   rowPackageGithubButton.forEach((button) => {
     button.addEventListener('click', e => {
       const regex = /^(https:\/\/github\.com\/[^/]+\/[^/]+\/)releases\/download\/[^/]+\/[^/]+$/;
