@@ -131,15 +131,15 @@ const setTheme = () => {
     downloadLink.addEventListener('click', downloadListener);
   }
 
-  const githubLink = document.querySelector("#rowMoreMenuGithub");
-  const githubListener = () => {
-    if (currentPackageUrl) {
-      const regex = /^(https:\/\/github\.com\/[^/]+\/[^/]+\/releases)\/download\/[^/]+\/[^/]+$/;
-      const match = currentPackageUrl.match(regex);
-      window.open(match[1], '_blank');
-    }
-  };
-  githubLink.addEventListener('click', githubListener);
+  // const githubLink = document.querySelector("#rowMoreMenuGithub");
+  // const githubListener = () => {
+  //   if (currentPackageUrl) {
+  //     const regex = /^(https:\/\/github\.com\/[^/]+\/[^/]+\/)releases\/download\/[^/]+\/[^/]+$/;
+  //     const match = currentPackageUrl.match(regex);
+  //     window.open(match[1], '_blank');
+  //   }
+  // };
+  // githubLink.addEventListener('click', githubListener);
 
   rowMenuButtons.forEach(button => {
     button.addEventListener('click', e => {
@@ -183,13 +183,24 @@ const setTheme = () => {
   const packageInfoDependencies = document.getElementById('packageInfoDependencies');
   const packageInfoKeywords = document.getElementById('packageInfoKeywords');
   const packageInfoLicense = document.getElementById('packageInfoLicense');
+  const packageInfoExternalLink = document.getElementById('packageInfoExternalLink');
   const packageInfoVccUrlField = document.getElementById('packageInfoVccUrlField');
 
   const rowAddToVccButtons = document.querySelectorAll('.rowAddToVccButton');
   rowAddToVccButtons.forEach((button) => {
-    button.addEventListener('click', () => window.location.assign(`vcc://vpm/addRepo?url=${encodeURIComponent(LISTING_URL)}`));
+    button.addEventListener('click', e => window.location.assign(`vcc://vpm/addRepo?url=${encodeURIComponent(e.target.dataset?.packageUrl)}`));
   });
-
+  const rowPackageGithubButton = document.querySelectorAll('.rowAddToVccButton');
+  rowPackageGithubButton.forEach((button) => {
+    button.addEventListener('click', e => {
+      const regex = /^(https:\/\/github\.com\/[^/]+\/[^/]+\/)releases\/download\/[^/]+\/[^/]+$/;
+      const match = e.target.dataset?.packageUrl.match(regex);
+      if(match.Success)
+      {
+       window.open(match[1], '_blank');
+      }
+    });
+  });
   const rowPackageInfoButton = document.querySelectorAll('.rowPackageInfoButton');
   rowPackageInfoButton.forEach((button) => {
     button.addEventListener('click', e => {
@@ -206,7 +217,17 @@ const setTheme = () => {
       packageInfoDescription.textContent = packageInfo.description;
       packageInfoAuthor.textContent = packageInfo.author.name;
       packageInfoAuthor.href = packageInfo.author.url;
-      packageInfoVccUrlField.textContent = packageInfo.url;
+      const regex = /^https:\/\/github\.com\/([^/]+)\/([^/]+)\/releases\/download\/[^/]+\/[^/]+$/;
+      const match = e.target.dataset?.packageUrl.match(regex);
+      if(match.Success)
+      {
+        packageInfoExternalLink.href = "http://" + match[1] + ".github.io/" + match[2];
+        packageInfoExternalLink.textContent = "http://" + match[1] + ".github.io/" + match[2];
+        packageInfoVccUrlField.value = "http://" + match[1] + ".github.io/" + match[2] + "/index.json";
+      } else {
+        packageInfoExternalLink.parentElement.classList.add('hidden');
+        packageInfoVccUrlField.value = "Not Available";
+      }
 
       if ((packageInfo.keywords?.length ?? 0) === 0) {
         packageInfoKeywords.parentElement.classList.add('hidden');
