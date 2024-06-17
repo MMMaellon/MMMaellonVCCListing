@@ -15,7 +15,15 @@
     "bannerUrl":"banner.jpg",
     "githubRepos":[
         "MMMaellon/SmartObjectSync",
+        "MMMaellon/LightSync",
+        "MMMaellon/Blankie",
         "MMMaellon/P-Shooters",
+        "MMMaellon/MMMaellonJuice",
+        "MMMaellon/real-fake-doors",
+        "MMMaellon/PlateTectonics",
+        "MMMaellon/BigDeckIsBackInTown",
+        "MMMaellon/BeefSquashingFightingRing",
+        "chiugame/udon-task",
         "CyanLaser/CyanPlayerObjectPool"
     ],
     "packages":[
